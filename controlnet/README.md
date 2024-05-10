@@ -5,4 +5,5 @@
 ```
 conda create -n tele python=3.7.0
 conda activate tele
+pip install -r requirements.txt
 ```
