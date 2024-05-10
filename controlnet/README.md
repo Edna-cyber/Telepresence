@@ -4,5 +4,5 @@
 - [x] Separated the person from background using MODNet https://github.com/ZHKKKe/MODNet/tree/master/demo/image_matting/colab <br>
 ```
 conda create -n tele python=3.6
-conda activate modnet
+conda activate tele
 ```
