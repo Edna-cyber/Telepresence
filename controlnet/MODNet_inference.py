@@ -60,7 +60,7 @@ if __name__ == '__main__':
         if i==1:
             break ###
         print('Process image folder: {}'.format(folder))
-        os.makedirs(os.path.join(args.output_path, folder.replace("IMG", "MATTE")), exist_ok=True)
+        os.makedirs(os.path.join(args.output_path, folder.replace("IMG", "FOREGROUND_MATTE")), exist_ok=True)
         im_names = os.listdir(os.path.join(args.input_path, folder))
         for im_name in im_names:
             # read image
@@ -74,6 +74,7 @@ if __name__ == '__main__':
                 im = np.repeat(im, 3, axis=2)
             elif im.shape[2] == 4:
                 im = im[:, :, 0:3]
+            image = im
 
             # convert image to PyTorch tensor
             im = Image.fromarray(im)
@@ -105,6 +106,11 @@ if __name__ == '__main__':
             # resize and save matte
             matte = F.interpolate(matte, size=(im_h, im_w), mode='area')
             matte = matte[0][0].data.cpu().numpy()
+            matte = (matte * 255).astype('uint8') ###
+                
+            # obtain predicted foreground
+            matte = np.repeat(matte[:, :, None], 3, axis=2) / 255
+            foreground = image * matte + np.full(image.shape, 255) * (1 - matte)
             matte_name = im_name.split('.')[0] + '.png'
-            Image.fromarray(((matte * 255).astype('uint8')), mode='L').save(os.path.join(args.output_path, folder.replace("IMG", "MATTE"), matte_name))
+            Image.fromarray(np.uint8(foreground)).save(os.path.join(args.output_path, folder.replace("IMG", "FOREGROUND_MATTE"), matte_name))
         i += 1 ###
