@@ -55,10 +55,7 @@ if __name__ == '__main__':
     modnet.eval()
 
     # inference images
-    i = 0 ###
     for folder in os.listdir(args.input_path):
-        if i==1:
-            break ###
         print('Process image folder: {}'.format(folder))
         os.makedirs(os.path.join(args.output_path, folder.replace("IMG", "FOREGROUND_MATTE")), exist_ok=True)
         im_names = os.listdir(os.path.join(args.input_path, folder))
@@ -113,4 +110,3 @@ if __name__ == '__main__':
             foreground = image * matte + np.full(image.shape, 255) * (1 - matte)
             matte_name = im_name.split('.')[0] + '.png'
             Image.fromarray(np.uint8(foreground)).save(os.path.join(args.output_path, folder.replace("IMG", "FOREGROUND_MATTE"), matte_name))
-        i += 1 ###
