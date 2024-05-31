@@ -72,7 +72,7 @@ def visualize(
   Returns:
     Cropped image within the bounding boxes.
   """
-  annotated_image = image.copy()
+  cropped_image = image.copy() # annotated_image
   height, width, _ = image.shape
 
   for detection in detection_result.detections:
@@ -82,8 +82,8 @@ def visualize(
     end_point = (bbox.origin_x + bbox.width, bbox.origin_y + bbox.height) # bbox.width=bbox.height=543
     # Manually enlarge bounding_box
     center_point = ((start_point[0]+end_point[0])/2, (start_point[1]+end_point[1])/2)
-    start_point = (int(center_point[0]-500), int(center_point[1]-500))
-    end_point = (int(center_point[0]+500), int(center_point[1]+500))
+    start_point = (int(center_point[0]-700), int(center_point[1]-700))
+    end_point = (int(center_point[0]+700), int(center_point[1]+700))
     cropped_image = image[start_point[1]:end_point[1], start_point[0]:end_point[0]]
 
     # cv2.rectangle(annotated_image, start_point, end_point, TEXT_COLOR, 3) 
@@ -136,20 +136,19 @@ if __name__ == '__main__':
             # STEP 1: Add white margin to the input image. 
             white_image = np.ones((3000, 3000, 3), dtype=np.uint8) * 255
             mediapipe_image_np = np.array(image) * 255
-            print(mediapipe_image_np.shape)
             x_offset = (3000 - 1080) // 2
             y_offset = (3000 - 1920) // 2
             white_image[x_offset:x_offset+1080, y_offset:y_offset+1920, :] = mediapipe_image_np
             plt.imsave(os.path.join(args.intermediate_path, folder.replace("FOREGROUND_MATTE", "WHITE_MARGIN"), matte_image), white_image, format='png')
             
             # STEP 2: Load the input image.
-            # image = mp.Image.create_from_file(IMAGE_FILE) # 1920 * 1920
+            WHITE_IMAGE_FILE = os.path.join(args.intermediate_path, folder.replace("FOREGROUND_MATTE", "WHITE_MARGIN"), matte_image)
+            image = mp.Image.create_from_file(WHITE_IMAGE_FILE) 
             
-
             # STEP 3: Detect faces in the input image.
-            # detection_result = detector.detect(image)
-            # # STEP 4: Process the detection result. In this case, visualize it.
-            # image_copy = np.copy(image.numpy_view())
-            # cropped_image = visualize(image_copy, detection_result)    
-            # plt.imsave(os.path.join(args.output_path, folder.replace("FOREGROUND_MATTE", "CROPPED"), matte_image), cropped_image, format='png')
+            detection_result = detector.detect(image)
+            # STEP 4: Process the detection result. 
+            image_copy = np.copy(image.numpy_view())
+            crop_image = visualize(image_copy, detection_result)    
+            plt.imsave(os.path.join(args.output_path, folder.replace("FOREGROUND_MATTE", "CROPPED"), matte_image), crop_image, format='png')
             

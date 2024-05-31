@@ -3,3 +3,4 @@ controlnet/matte_images/
 controlnet/src/
 controlnet/cropped_images/
 controlnet/detector.tflite
+controlnet/white_margin_images/
