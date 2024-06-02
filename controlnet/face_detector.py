@@ -123,13 +123,9 @@ if __name__ == '__main__':
     parser.add_argument('--intermediate-path', type=str, help='path of matte images with white margin', default='/usr/project/xtmp/rz95/Telepresence/controlnet/white_margin_images') # <YOUR_OWN_PATH>
     parser.add_argument('--output-path', type=str, help='path of output cropped images', default='/usr/project/xtmp/rz95/Telepresence/controlnet/cropped_images') # <YOUR_OWN_PATH>
     args = parser.parse_args()
-    i = 0 ###
     for folder in os.listdir(args.input_path):
-        if i==1:
-            break
         os.makedirs(os.path.join(args.intermediate_path, folder.replace("FOREGROUND_MATTE", "WHITE_MARGIN")), exist_ok=True)
         os.makedirs(os.path.join(args.output_path, folder.replace("FOREGROUND_MATTE", "CROPPED")), exist_ok=True)
-        i += 1
         for matte_image in os.listdir(os.path.join(args.input_path, folder)):
             IMAGE_FILE = os.path.join(args.input_path, folder, matte_image)
             image = mpimg.imread(IMAGE_FILE) # 1080 * 1920
