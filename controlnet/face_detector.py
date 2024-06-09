@@ -82,7 +82,7 @@ def visualize(
     end_point = (bbox.origin_x + bbox.width, bbox.origin_y + bbox.height) # bbox.width=bbox.height=543
     # Manually enlarge bounding_box
     center_point = ((start_point[0]+end_point[0])/2, (start_point[1]+end_point[1])/2)
-    start_point = (int(center_point[0]-700), int(center_point[1]-700))
+    start_point = (int(center_point[0]-700), int(center_point[1]-700)) # 1400 * 1400
     end_point = (int(center_point[0]+700), int(center_point[1]+700))
     cropped_image = image[start_point[1]:end_point[1], start_point[0]:end_point[0]]
 
