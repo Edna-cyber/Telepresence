@@ -4,3 +4,5 @@ controlnet/src/
 controlnet/cropped_images/
 controlnet/detector.tflite
 controlnet/white_margin_images/
+controlnet/groundtruth_images/
+controlnet/corrupted_images/
