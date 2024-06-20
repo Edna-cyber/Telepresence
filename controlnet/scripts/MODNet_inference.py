@@ -15,8 +15,8 @@ from src.models.modnet import MODNet
 if __name__ == '__main__':
     # define cmd arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument('--input-path', type=str, help='path of input images', default='/usr/project/xtmp/rz95/Telepresence/controlnet/raw_images') # <YOUR_OWN_PATH>
-    parser.add_argument('--output-path', type=str, help='path of output images', default='/usr/project/xtmp/rz95/Telepresence/controlnet/matte_images') # <YOUR_OWN_PATH>
+    parser.add_argument('--input-path', type=str, help='path of input images', default='/usr/project/xtmp/rz95/Telepresence/controlnet/training/self_portrait/raw_images') # <YOUR_OWN_PATH>
+    parser.add_argument('--output-path', type=str, help='path of output images', default='/usr/project/xtmp/rz95/Telepresence/controlnet/training/self_portrait/matte_images') # <YOUR_OWN_PATH>
     parser.add_argument('--ckpt-path', type=str, help='path of pre-trained MODNet', default='/usr/project/xtmp/rz95/Telepresence/controlnet/modnet_photographic_portrait_matting.ckpt') # <YOUR_OWN_PATH>
     args = parser.parse_args()
 

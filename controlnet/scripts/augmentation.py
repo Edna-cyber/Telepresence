@@ -15,9 +15,9 @@ class SpeckleNoiseTransform(v2.Transform):
 if __name__ == '__main__':
     # define cmd arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument('--input-path', type=str, help='path of input cropped images', default='/usr/project/xtmp/rz95/Telepresence/controlnet/cropped_images') # <YOUR_OWN_PATH>
-    parser.add_argument('--gt-path', type=str, help='path of ground truth images', default='/usr/project/xtmp/rz95/Telepresence/controlnet/groundtruth_images') # <YOUR_OWN_PATH>
-    parser.add_argument('--corrupted-path', type=str, help='path of corrupted images', default='/usr/project/xtmp/rz95/Telepresence/controlnet/corrupted_images') # <YOUR_OWN_PATH>
+    parser.add_argument('--input-path', type=str, help='path of input cropped images', default='/usr/project/xtmp/rz95/Telepresence/controlnet/training/self_portrait/cropped_images') # <YOUR_OWN_PATH>
+    parser.add_argument('--gt-path', type=str, help='path of ground truth images', default='/usr/project/xtmp/rz95/Telepresence/controlnet/training/self_portrait/groundtruth_images') # <YOUR_OWN_PATH>
+    parser.add_argument('--corrupted-path', type=str, help='path of corrupted images', default='/usr/project/xtmp/rz95/Telepresence/controlnet/training/self_portrait/corrupted_images') # <YOUR_OWN_PATH>
     args = parser.parse_args()
     
     random.seed(7729)

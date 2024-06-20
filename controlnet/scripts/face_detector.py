@@ -119,9 +119,9 @@ detector = vision.FaceDetector.create_from_options(options)
 if __name__ == '__main__':
     # define cmd arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument('--input-path', type=str, help='path of input matte images', default='/usr/project/xtmp/rz95/Telepresence/controlnet/matte_images') # <YOUR_OWN_PATH>
-    parser.add_argument('--intermediate-path', type=str, help='path of matte images with white margin', default='/usr/project/xtmp/rz95/Telepresence/controlnet/white_margin_images') # <YOUR_OWN_PATH>
-    parser.add_argument('--output-path', type=str, help='path of output cropped images', default='/usr/project/xtmp/rz95/Telepresence/controlnet/cropped_images') # <YOUR_OWN_PATH>
+    parser.add_argument('--input-path', type=str, help='path of input matte images', default='/usr/project/xtmp/rz95/Telepresence/controlnet/training/self_portrait/matte_images') # <YOUR_OWN_PATH>
+    parser.add_argument('--intermediate-path', type=str, help='path of matte images with white margin', default='/usr/project/xtmp/rz95/Telepresence/controlnet/training/self_portrait/white_margin_images') # <YOUR_OWN_PATH>
+    parser.add_argument('--output-path', type=str, help='path of output cropped images', default='/usr/project/xtmp/rz95/Telepresence/controlnet/training/self_portrait/cropped_images') # <YOUR_OWN_PATH>
     args = parser.parse_args()
     for folder in os.listdir(args.input_path):
         os.makedirs(os.path.join(args.intermediate_path, folder.replace("FOREGROUND_MATTE", "WHITE_MARGIN")), exist_ok=True)
