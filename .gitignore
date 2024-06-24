@@ -1,3 +1,10 @@
-controlnet/training/self_portrait/
 controlnet/src/
 controlnet/detector.tflite
+controlnet/training/self_portrait/corrupted_images
+controlnet/training/self_portrait/cropped_images
+controlnet/training/self_portrait/groundtruth_images
+controlnet/training/self_portrait/matte_images
+controlnet/training/self_portrait/raw_images
+controlnet/training/self_portrait/source
+controlnet/training/self_portrait/target
+controlnet/training/self_portrait/white_margin_images
