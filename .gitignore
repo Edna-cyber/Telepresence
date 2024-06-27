@@ -8,3 +8,4 @@ controlnet_finetune/training/self_portrait/raw_images
 controlnet_finetune/training/self_portrait/source
 controlnet_finetune/training/self_portrait/target
 controlnet_finetune/training/self_portrait/white_margin_images
+controlnet_finetune/modnet_photographic_portrait_matting.ckpt
