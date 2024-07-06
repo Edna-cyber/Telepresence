@@ -1,3 +1,4 @@
+__pycache__/
 controlnet_finetune/src/
 controlnet_finetune/detector.tflite
 controlnet_finetune/training/self_portrait/corrupted_images
@@ -13,4 +14,4 @@ controlnet_finetune/scripts/ControlNet/models/*.ckpt
 controlnet_finetune/scripts/ControlNet/models/*.pth 
 controlnet_finetune/scripts/ControlNet/annotator/ckpts/*.pth
 controlnet_finetune/scripts/ControlNet/annotator/ckpts/*.pt
-__pycache__/
+controlnet_finetune/scripts/ControlNet/lightning_logs
