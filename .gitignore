@@ -9,3 +9,8 @@ controlnet_finetune/training/self_portrait/source
 controlnet_finetune/training/self_portrait/target
 controlnet_finetune/training/self_portrait/white_margin_images
 controlnet_finetune/modnet_photographic_portrait_matting.ckpt
+controlnet_finetune/scripts/ControlNet/models/*.ckpt
+controlnet_finetune/scripts/ControlNet/models/*.pth 
+controlnet_finetune/scripts/ControlNet/annotator/ckpts/*.pth
+controlnet_finetune/scripts/ControlNet/annotator/ckpts/*.pt
+__pycache__/

@@ -3,3 +3,9 @@ pillow
 torch
 torchvision
 mediapipe
+einops
+transformers
+omegaconf
+pytorch-lightning
+xformers
+open_clip_torch

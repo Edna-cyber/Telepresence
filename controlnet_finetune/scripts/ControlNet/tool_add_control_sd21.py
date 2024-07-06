@@ -23,7 +23,6 @@ def get_node_name(name, parent_name):
         return False, ''
     return True, name[len(parent_name):]
 
-
 model = create_model(config_path='./models/cldm_v21.yaml')
 
 pretrained_weights = torch.load(input_path)

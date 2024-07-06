@@ -8,9 +8,9 @@ from torch.utils.data import Dataset
 class MyDataset(Dataset):
     def __init__(self):
         self.data = []
-        with open('./training/fill50k/prompt.json', 'rt') as f:
-            for line in f:
-                self.data.append(json.loads(line))
+        with open('/usr/project/xtmp/rz95/Telepresence/controlnet_finetune/training/self_portrait/prompt.json', 'rt') as f: # <YOUR_OWN_PATH>
+            file_content = f.read()
+            self.data = json.loads(file_content)
 
     def __len__(self):
         return len(self.data)
@@ -22,8 +22,8 @@ class MyDataset(Dataset):
         target_filename = item['target']
         prompt = item['prompt']
 
-        source = cv2.imread('./training/fill50k/' + source_filename)
-        target = cv2.imread('./training/fill50k/' + target_filename)
+        source = cv2.imread('/usr/project/xtmp/rz95/Telepresence/controlnet_finetune/training/self_portrait/' + source_filename) # <YOUR_OWN_PATH>
+        target = cv2.imread('/usr/project/xtmp/rz95/Telepresence/controlnet_finetune/training/self_portrait/' + target_filename) # <YOUR_OWN_PATH>
 
         # Do not forget that OpenCV read images in BGR order.
         source = cv2.cvtColor(source, cv2.COLOR_BGR2RGB)
@@ -37,3 +37,13 @@ class MyDataset(Dataset):
 
         return dict(jpg=target, txt=prompt, hint=source)
 
+dataset = MyDataset()
+print(len(dataset)) # 3503
+
+item = dataset[1234]
+jpg = item['jpg']
+txt = item['txt']
+hint = item['hint']
+print(txt) # “Recover a clean and high resolution image for me”
+print(jpg.shape) # (256, 256, 3)
+print(hint.shape) # (256, 256, 3)
