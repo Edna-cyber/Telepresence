@@ -61,8 +61,8 @@ class ImageLogger(Callback):
                     if self.clamp:
                         images[k] = torch.clamp(images[k], -1., 1.)
 
-            self.log_local(pl_module.logger.save_dir, split, images,
-                           pl_module.global_step, pl_module.current_epoch, batch_idx)
+            self.log_local("/usr/project/xtmp/rz95/", split, images,
+                           pl_module.global_step, pl_module.current_epoch, batch_idx) # pl_module.logger.save_dir
 
             if is_train:
                 pl_module.train()
