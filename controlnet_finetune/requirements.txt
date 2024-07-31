@@ -8,4 +8,4 @@ transformers
 omegaconf
 pytorch-lightning
 xformers
-open_clip_torch
+open-clip-torch==2.24.0

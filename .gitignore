@@ -15,3 +15,4 @@ controlnet_finetune/scripts/ControlNet/models/*.pth
 controlnet_finetune/scripts/ControlNet/annotator/ckpts/*.pth
 controlnet_finetune/scripts/ControlNet/annotator/ckpts/*.pt
 controlnet_finetune/scripts/ControlNet/lightning_logs
+controlnet_finetune/training/self_portrait/lightning_logs

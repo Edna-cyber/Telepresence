@@ -8,7 +8,7 @@ from torch.utils.data import Dataset
 class MyDataset(Dataset):
     def __init__(self):
         self.data = []
-        with open('/usr/project/xtmp/rz95/Telepresence/controlnet_finetune/training/self_portrait/prompt.json', 'rt') as f: # <YOUR_OWN_PATH>
+        with open('/usr/project/xtmp/rz95/Telepresence/controlnet_finetune/training/self_portrait/prompt.json', 'rt') as f: # <YOUR_OWN_PATH> 
             file_content = f.read()
             self.data = json.loads(file_content)
 
@@ -40,7 +40,7 @@ class MyDataset(Dataset):
 dataset = MyDataset()
 print(len(dataset)) # 3503
 
-item = dataset[1234]
+item = dataset[0]
 jpg = item['jpg']
 txt = item['txt']
 hint = item['hint']
